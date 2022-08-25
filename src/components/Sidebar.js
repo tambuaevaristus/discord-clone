@@ -1,5 +1,5 @@
 import React from "react";
-import { MdExpandMore,MdHeadset,MdSettings, MdAdd,MdMic ,MdSignalCellularAlt,MdPerson ,MdInfo,MdCall} from "react-icons/md";
+import { MdExpandMore,MdHeadset,MdSettings, MdAdd,MdMic ,MdSignalCellularAlt,MdAccountCircle,MdInfo,MdCall} from "react-icons/md";
 import SidebarChannel from "./SidebarChannel";
 
 function Sidebar() {
@@ -50,7 +50,7 @@ function Sidebar() {
       <hr/>
 
       <div className="d-flex text-center justify-content-between">
-                <MdPerson  size="60"/>
+                <MdAccountCircle size="60"/>
                 <div>
                     <h5>@tambua</h5>
                     <p>#myIdhere</p>
