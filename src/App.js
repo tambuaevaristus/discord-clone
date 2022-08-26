@@ -1,10 +1,10 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import "./App.css";
 import Chat from "./components/Chat";
 import Sidebar from "./components/Sidebar";
-import { login, selectUser } from "./features/userSlice";
+import { login, logout, selectUser } from "./features/userSlice";
 import Login from "./Login";
 
 function App() {
@@ -13,22 +13,31 @@ function App() {
   const user = useSelector(selectUser);
 
   useEffect(() => {
-onAuthStateChanged(auth, (authUser) => {
-  if (user) {
-      dispatch(
-        login({
-        uid: authUser.uid,
-        photo: authUser.phhotoUrl,
-        email: authUser.email,
-        displayName: authUser.displayName,
-      }))
-  } else {
-    // User is signed out
-    // ...
-  }
-});
-   
-  }, []);
+    onAuthStateChanged(auth, (authUser) => {
+      
+      // if(user){
+
+        dispatch(
+          login({
+            // uid: authUser.uid,
+            // photo: authUser.photoURL,
+            // email: authUser.email,
+            // displayName: authUser.displayName,
+            uid:"id-1",
+            // photo: authUser.photoURL,
+            email:"evaristustambua@gmail.com",
+            displayName: "Tambua Evaristus",
+          })
+        );
+      //  }
+      // else{
+      //   dispatch(
+      //     logout()
+      //   )
+      // }
+     
+    });
+  }, [dispatch]);
   return (
     <div className="row">
       {user ? (
@@ -37,7 +46,7 @@ onAuthStateChanged(auth, (authUser) => {
           <Chat />
         </>
       ) : (
-       <Login />
+        <Login />
       )}
     </div>
   );
